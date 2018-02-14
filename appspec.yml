@@ -1,0 +1,22 @@
+version: 0.0
+os: linux
+files:
+   - source: /index.html
+     destination: /usr/share/nginx/html
+permissions:
+   - object: /usr/share/nginx/html
+     pattern: "**"
+     owner: root
+     group: root
+     mode: 755
+     type:
+       - file
+hooks:
+   BeforeInstall:
+    - location: scripts/install.sh
+      runas: root
+    - location: scripts/start.sh
+      runas: root
+   AfterInstall:
+    - location: scripts/restart.sh
+      runas: root
