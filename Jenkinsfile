@@ -17,7 +17,14 @@ pipeline {
     stage('Deploy') {
       steps {
         echo 'Build stage'
-        sh 'docker run -d test/$BRANCH_NAME:$GIT_COMMIT'
+        script {
+          if (env.BRANCH_NAME == 'jenkins') {
+            sh 'docker run -d test/$BRANCH_NAME:$GIT_COMMIT'
+          }
+          else {
+            echo "Not jenkins branch!"
+          }
+        }        
       }
     }
   }
