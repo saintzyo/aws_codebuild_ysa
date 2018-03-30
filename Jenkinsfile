@@ -20,7 +20,9 @@ pipeline {
         script {
           if (env.BRANCH_NAME == 'jenkins') {
             echo "Not jenkins branch!"
-            git url: 'https://github.com/saintzyo/ansible-role-nginx.git'
+            dir('ansible') {
+              git url: 'https://github.com/saintzyo/ansible-role-nginx.git'
+            }
             sh 'pwd'
             sh 'ls -la'
             sh 'ls -la ..'
