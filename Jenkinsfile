@@ -1,14 +1,15 @@
 pipeline {
-  agent {
-    node {
-      label 'test'
-    }
+  agent any
     
-  }
   stages {
-    stage('error') {
+    stage('Build') {
       steps {
-        sh 'docker build'
+        echo "Build stage..."
+      }
+    }
+    stage('Test') {
+      steps {
+        echo 'Test stage...'
       }
     }
   }
