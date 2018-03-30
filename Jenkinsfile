@@ -11,7 +11,7 @@ pipeline {
     stage('Test') {
       steps {
         echo 'Test stage...'
-        sh 'printenv'
+        sh 'docker build -t $test/BRANCH_NAME:$GIT_COMMIT'
       }
     }
   }
