@@ -11,7 +11,7 @@ pipeline {
     stage('Test') {
       steps {
         echo 'Test stage...'
-        sh 'docker build -t test .'
+        sh 'printenv'
       }
     }
   }
