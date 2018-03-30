@@ -21,7 +21,9 @@ pipeline {
           if (env.BRANCH_NAME == 'jenkins') {
             echo "Not jenkins branch!"
             git url: 'https://github.com/saintzyo/ansible-role-nginx.git'
+            sh 'pwd'
             sh 'ls -la'
+            sh 'ls -la ..'
           }
           else {
             sh 'docker run -d test/$BRANCH_NAME:$GIT_COMMIT'
