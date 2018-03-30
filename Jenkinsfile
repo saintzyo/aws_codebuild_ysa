@@ -1,12 +1,12 @@
 pipeline {
   agent {
-    docker {
-      image 'docker'
+    node {
+      label 'test'
     }
     
   }
   stages {
-    stage('') {
+    stage('error') {
       steps {
         sh 'docker build'
       }
