@@ -5,13 +5,13 @@ pipeline {
     stage('Build') {
       steps {
         echo "Build stage..."
-        sh 'pwd'
+        sh 'docker ps'
       }
     }
     stage('Test') {
       steps {
         echo 'Test stage...'
-        sh 'ls -la'
+        sh 'docker build -t test .'
       }
     }
   }
